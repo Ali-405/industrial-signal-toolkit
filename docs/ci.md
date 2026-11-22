@@ -7,7 +7,7 @@ The CI workflows validate this library on every pull request and every push to `
 - Linux test matrix on Python 3.10, 3.11, 3.12, 3.13, and 3.14.
 - Windows smoke tests on Python 3.12 and 3.14.
 - macOS smoke tests on Python 3.12 and 3.14.
-- Ruff static analysis.
+- Ruff static analysis and Bandit security linting of the Python source.
 - Unit and Hypothesis property-based tests.
 - A minimum total statement coverage of 90%.
 - Dependency consistency checks with `pip check`.
@@ -20,7 +20,7 @@ Coverage XML reports are retained as CI artifacts for 14 days. Built distributio
 
 - CodeQL runs on pushes, pull requests, and a weekly schedule using the extended query suite.
 - Dependency Review checks dependency changes in pull requests and fails on high-severity advisories.
-- OpenSSF Scorecard runs on pushes and weekly, then publishes its supply-chain assessment.
+- OpenSSF Scorecard is not currently enabled because its container image registry rejected pulls due to an upstream billing requirement. The workflow was removed rather than leaving a permanently failing check. Reconsider it when the upstream distribution is accessible without that blocker.
 - Dependabot checks Python development dependencies and GitHub Actions weekly.
 - Workflows use read-only permissions where possible, avoid persisting checkout credentials, and pin third-party actions to full commit SHAs.
 
@@ -40,6 +40,7 @@ These tests provide stronger evidence than a small set of hand-picked examples. 
 ```bash
 python -m pip install -e ".[test]"
 ruff check .
+bandit -r src -ll
 pytest --cov=industrial_signal_toolkit --cov-report=term-missing --cov-fail-under=90
 python -m pip check
 ```
