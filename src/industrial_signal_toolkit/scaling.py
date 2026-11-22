@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from decimal import Decimal, InvalidOperation, ROUND_HALF_UP, localcontext
+from decimal import ROUND_HALF_UP, Decimal, InvalidOperation, localcontext
 from enum import Enum
 from typing import TypeAlias
 

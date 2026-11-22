@@ -1,4 +1,5 @@
 import csv
+
 from industrial_signal_toolkit.batch import process_rows, scale_csv
 
 

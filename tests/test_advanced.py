@@ -1,15 +1,20 @@
-import pytest
 from decimal import Decimal
 
+import pytest
+
 from industrial_signal_toolkit import (
-    AnalogScaling, ScalingError, scale_analog_value, linear_map,
-    inverse_gain_offset, format_engineering_value,
+    AnalogScaling,
+    ScalingError,
+    format_engineering_value,
+    inverse_gain_offset,
+    linear_map,
+    scale_analog_value,
 )
 
 
 def test_negative_gain_is_supported():
     result = scale_analog_value("5", AnalogScaling(gain="-2", offset="1"))
-    assert result.engineering_value == Decimal("-9")
+    assert result.engineering_value == Decimal(-9)
 
 
 def test_positive_offset_is_applied():
@@ -52,7 +57,7 @@ def test_reversed_linear_mapping():
 
 
 def test_reversed_span_clamping():
-    assert linear_map(120, 100, 0, 0, 10, clamp=True) == Decimal("0")
+    assert linear_map(120, 100, 0, 0, 10, clamp=True) == Decimal(0)
 
 
 def test_zero_width_input_span_rejected():

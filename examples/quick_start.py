@@ -1,6 +1,6 @@
 """Minimal API example for Industrial Signal Toolkit."""
 
-from industrial_signal_toolkit import AnalogScaling, scale_analog_value, linear_map
+from industrial_signal_toolkit import AnalogScaling, linear_map, scale_analog_value
 
 reading = scale_analog_value(
     raw_value="10.25",

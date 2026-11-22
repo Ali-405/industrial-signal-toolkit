@@ -1,9 +1,15 @@
 from decimal import Decimal
+
 import pytest
 
 from industrial_signal_toolkit import (
-    AnalogScaling, RangeState, ScalingError, assess_range,
-    format_engineering_value, inverse_gain_offset, linear_map,
+    AnalogScaling,
+    RangeState,
+    ScalingError,
+    assess_range,
+    format_engineering_value,
+    inverse_gain_offset,
+    linear_map,
     scale_analog_value,
 )
 
@@ -38,7 +44,7 @@ def test_range_assessment_does_not_clamp():
 
 
 def test_inverse_scaling():
-    assert inverse_gain_offset("12.55", "0.1", "0.25") == Decimal("123")
+    assert inverse_gain_offset("12.55", "0.1", "0.25") == Decimal(123)
 
 
 def test_inverse_rejects_zero_gain():
@@ -48,8 +54,8 @@ def test_inverse_rejects_zero_gain():
 
 def test_linear_map_and_clamp():
     assert linear_map(50, 0, 100, 4, 20) == Decimal("12.0")
-    assert linear_map(120, 0, 100, 0, 10) == Decimal("12")
-    assert linear_map(120, 0, 100, 0, 10, clamp=True) == Decimal("10")
+    assert linear_map(120, 0, 100, 0, 10) == Decimal(12)
+    assert linear_map(120, 0, 100, 0, 10, clamp=True) == Decimal(10)
 
 
 def test_assess_range_states():
