@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,12 +8,18 @@ version = "0.1.0"
 description = "Dependency-free engineering utilities for industrial analog signals and tag scaling."
 readme = "README.md"
 requires-python = ">=3.10"
-license = {file = "LICENSE"}
+license = "MIT"
+license-files = ["LICENSE"]
 dependencies = []
 keywords = ["industrial-automation", "plc", "scada", "signal-scaling"]
 
 [project.optional-dependencies]
-test = ["pytest>=8", "pytest-cov>=6", "ruff>=0.14"]
+test = [
+    "pytest>=8",
+    "pytest-cov>=6",
+    "ruff>=0.14",
+    "hypothesis>=6.100",
+]
 
 [project.scripts]
 istk = "industrial_signal_toolkit.cli:main"
@@ -24,3 +30,6 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+
+[tool.ruff]
+line-length = 100
