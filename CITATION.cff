@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use Industrial Signal Toolkit, please cite this repository."
+title: "Industrial Signal Toolkit"
+version: 0.1.0
+type: software
+authors:
+  - name: "Ali-405"
+repository-code: "https://github.com/Ali-405/industrial-signal-toolkit"
+license: MIT
