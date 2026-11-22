@@ -13,7 +13,7 @@ dependencies = []
 keywords = ["industrial-automation", "plc", "scada", "signal-scaling"]
 
 [project.optional-dependencies]
-test = ["pytest>=8"]
+test = ["pytest>=8", "pytest-cov>=6", "ruff>=0.14"]
 
 [project.scripts]
 istk = "industrial_signal_toolkit.cli:main"
