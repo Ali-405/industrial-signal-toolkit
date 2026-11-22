@@ -44,6 +44,9 @@ jobs:
       - name: Static analysis
         run: ruff check .
 
+      - name: Python security lint
+        run: bandit -r src -ll
+
       - name: Property-based, unit tests and coverage
         run: pytest --cov=industrial_signal_toolkit --cov-report=term-missing --cov-report=xml --cov-fail-under=90
 
