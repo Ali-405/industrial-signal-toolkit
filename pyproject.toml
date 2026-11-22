@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "industrial-signal-toolkit"
+version = "0.1.0"
+description = "Dependency-free engineering utilities for industrial analog signals and tag scaling."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = []
+keywords = ["industrial-automation", "plc", "scada", "signal-scaling"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+istk = "industrial_signal_toolkit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
