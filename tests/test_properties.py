@@ -13,15 +13,15 @@ from industrial_signal_toolkit import (
 )
 
 finite_values = st.decimals(
-    min_value=Decimal("-10000"),
-    max_value=Decimal("10000"),
+    min_value=Decimal(-10000),
+    max_value=Decimal(10000),
     places=3,
     allow_nan=False,
     allow_infinity=False,
 )
 nonzero_gains = st.one_of(
     st.decimals(
-        min_value=Decimal("-1000"),
+        min_value=Decimal(-1000),
         max_value=Decimal("-0.001"),
         places=3,
         allow_nan=False,
@@ -29,7 +29,7 @@ nonzero_gains = st.one_of(
     ),
     st.decimals(
         min_value=Decimal("0.001"),
-        max_value=Decimal("1000"),
+        max_value=Decimal(1000),
         places=3,
         allow_nan=False,
         allow_infinity=False,
